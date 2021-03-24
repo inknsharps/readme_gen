@@ -16,6 +16,25 @@ const questions = [
         name: "project_description",
         message: "Please input the description of the project. (After inputting the text in the external editor, please save the file and exit the editor to make the input.)",
         validate: requireAnswer
+    },
+    {
+        type: "editor",
+        name: "project_usage",
+        message: "Please input how to use this project. (After inputting the text in the external editor, please save the file and exit the editor to make the input.)",
+        validate: requireAnswer
+    },
+    {
+        type: "list",
+        name: "project_license",
+        message: "Please select a project license. (MIT is selected by default.)",
+        choices: [
+            "MIT License",
+            "GNU General Public License (GPL) 2.0",
+            "Apache License 2.0",
+            "GNU General Public License (GPL) 3.0",
+            "BSD License 2.0 (3-clause, New or Revised)",
+            "Choose Later"
+        ]
     }
 ];
 
@@ -47,7 +66,7 @@ function writeToFile(fileName, data){
 async function init(){
     let answers = await inquirer.prompt(questions);
     console.log(answers);
-    writeToFile(`${answers.project_name}.md`, `${answers.project_description}`);
+    writeToFile(`${answers.project_name}-readme.md`, `${answers.project_description}`);
 }
 
 // Function call to initialize app
