@@ -50,15 +50,14 @@ function requireAnswer(answer){
 }
 
 // Function to add markdown header tags
-function addHeader(text){
-    return `# ${text}`
+function addHeader(text, headerStyle){
+    return `${headerStyle} ${text}`
 }
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data){
     fs.writeFile(fileName, data, err => {
         if (err) throw err;
-        console.log("File created!")
     });
 }
 
@@ -66,7 +65,19 @@ function writeToFile(fileName, data){
 async function init(){
     let answers = await inquirer.prompt(questions);
     console.log(answers);
-    writeToFile(`${answers.project_name}-readme.md`, `${answers.project_description}`);
+
+    // Object to store all the markdown we need to make the readme
+    const markdownObject = {
+        fileName: `${answers.project_name}-readme.md`,
+        title: `${addHeader(answers.project_name, "#")}\r\r`,
+        description: `${addHeader("Description", "##")}\r${answers.project_description}\r\r`,
+        usage: `${addHeader("How to use", "##")}\r${answers.project_usage}\r\r`
+    }
+    console.log(markdownObject);
+
+    // Finally, call writeToFile() function, which takes the markdown object's key-values and writes them to a new file.
+    writeToFile(markdownObject.fileName, `${markdownObject.title}${markdownObject.description}${markdownObject.usage}`);
+    console.log("File created!")
 }
 
 // Function call to initialize app
