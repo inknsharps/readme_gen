@@ -59,6 +59,18 @@ const questions = [
         ]
     },
     {
+        type: "input",
+        name: "project_author",
+        message: "What is your GitHub username?",
+        validate: requireAnswer
+    },
+    {
+        type: "input",
+        name: "project_email",
+        message: "What is your email address?",
+        validate: requireAnswer
+    },
+    {
         type: "confirm",
         name: "project_index",
         message: "Include a table of contents?",

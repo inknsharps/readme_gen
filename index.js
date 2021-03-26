@@ -35,7 +35,14 @@ async function init(){
         usage: `${addHeader("How to use", "##")}\r${answers.project_usage}\r\r`,
         contribution: `${addHeader("How to Contribute", "##")}\r${answers.project_contribution}\r\r`,
         tests: `${addHeader("Tests", "##")}\r${answers.project_test}\r\r`,
-        license: licenseSection
+        license: licenseSection,
+        // TODO - Fix the questions/contact section
+        author: `${addHeader("Questions", "##")}\r${answers.project_author}, ${answers.project_email}`
+    }
+
+    // TODO - Make the index appear near the top of the readme, rather than the bottom
+    if (answers.project_index === true){
+        markdownObject.index = `Include a index.`
     }
 
     // Make array of the values of the markdown we just made
