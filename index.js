@@ -35,9 +35,9 @@ async function init(){
         usage: `${addHeader("How to use", "##")}\r${answers.project_usage}\r\r`,
         contribution: `${addHeader("How to Contribute", "##")}\r${answers.project_contribution}\r\r`,
         tests: `${addHeader("Tests", "##")}\r${answers.project_test}\r\r`,
-        license: licenseSection,
+        license: `${addHeader("License", "##")}\r${licenseSection}\r\r`,
         // TODO - Fix the questions/contact section
-        author: `${addHeader("Questions", "##")}\r${answers.project_author}, ${answers.project_email}`
+        author: `${addHeader("Questions", "##")}\r${answers.project_author}, ${answers.project_email}\r\r`
     }
 
     // TODO - Make the index appear near the top of the readme, rather than the bottom
