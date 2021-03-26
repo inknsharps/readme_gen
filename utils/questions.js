@@ -19,7 +19,7 @@ const questions = [
     {
         type: "input",
         name: "project_description",
-        message: "Please input the description of the project. (After inputting the text in the external editor, please save the file and exit the editor to make the input.)",
+        message: "Please input the description of the project.",
         validate: requireAnswer
     },
     {
@@ -31,7 +31,7 @@ const questions = [
     {
         type: "input",
         name: "project_usage",
-        message: "Please input how to use this project. (After inputting the text in the external editor, please save the file and exit the editor to make the input.)",
+        message: "Please input how to use this project.",
         validate: requireAnswer
     },
     {
@@ -52,11 +52,10 @@ const questions = [
         message: "Please select a project license. (MIT is selected by default.)",
         choices: [
             "MIT License",
-            "GNU General Public License (GPL) 2.0",
             "Apache License 2.0",
             "GNU General Public License (GPL) 3.0",
-            "BSD License 2.0 (3-clause, New or Revised)",
-            "Choose Later"
+            "ISC License",
+            "Choose later..."
         ]
     },
     {
@@ -67,5 +66,7 @@ const questions = [
     },
 ];
 
-module.exports.questions = questions;
-module.exports.requireAnswer = requireAnswer;
+module.exports = {
+    questions: questions,
+    requireAnswer: requireAnswer
+}

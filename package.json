@@ -9,6 +9,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "badge-maker": "^3.3.0",
     "inquirer": "^6.5.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inknsharps/readme_gen.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/inknsharps/readme_gen/issues"
+  },
+  "homepage": "https://github.com/inknsharps/readme_gen#readme"
 }
