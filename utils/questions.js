@@ -3,8 +3,6 @@ const requireAnswer = (answer) => {
     if (!answer){
         console.log("Please make an input!");
         return false;
-        // console.log("Required input not received. Aborting...");
-        // process.exit(1);
     }
     return true;
 }

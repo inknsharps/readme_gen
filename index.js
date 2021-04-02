@@ -26,7 +26,6 @@ function writeToFile(fileName, data){
 async function init(){
     // Use inquirer to prompt user for inputs, and store them to answers
     let answers = await inquirer.prompt(ask.questions);
-    // console.log("28: ", answers);
 
     // Create license section elements
     let selectedLicense = await answers.project_license;
@@ -46,16 +45,14 @@ async function init(){
         // TODO - Fix the questions/contact section
         contact: `${addHeader("Contact", "##")}\rYou can contact me either through\r[my GitHub profile](https://github.com/${answers.project_author}), or send an email to: ${answers.project_email}.\r\r`
     }
-    // console.log("48: ", markdownObject);
 
     // Make array of the keys of the markdown object we made
     let markdownObjectKeys = Object.keys(markdownObject);
-    // console.log("53: ", markdownObjectKeys);
 
     // Make array of the values of the markdown we just made
     let markdownObjectValues = Object.values(markdownObject);
 
-    // TODO - Make the index appear near the top of the readme, rather than the bottom
+    // If the user has selected true for making a table of contents
     if (answers.project_index === true){
         console.log("Making table of contents...");
 
@@ -65,12 +62,9 @@ async function init(){
         // For loop that splices the table of content link into the markdownObjectValues array (NOTE: splice() places the new element BEFORE the index that is designated, so to make sure the elements are added in order, i + 1 needs to be used.)
         for (let i = 2; i < markdownObjectKeys.length; i++){
             let contentLink = renderLink(markdownObjectKeys[i])
-            // console.log("66 :", contentLink);
             markdownObjectValues.splice(i + 1, 0, `${contentLink}\r\r`);
         }
     }
-
-    // console.log("67: ", markdownObjectValues);
 
     // Iterate through the markdown array, using writeToFile() to make the readme, starting at index 1 since we don't need to use the file name to build the readme
     for (let i = 1; i < markdownObjectValues.length; i++){
