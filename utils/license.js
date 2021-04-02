@@ -32,8 +32,8 @@ function renderLicenseSection(type){
             return renderLicenseLink("GNU General Public License (GPL) 3.0", "https://spdx.org/licenses/GPL-3.0-or-later.html");
         case "ISC License":
             return renderLicenseLink("ISC License", "https://spdx.org/licenses/ISC.html");
-        case "Choose later...":
-            break;
+        case "N/A":
+            return "N/A";
     }
 }
 
