@@ -25,5 +25,5 @@ You will be prompted for inputs to include in the readme file. Once all prompts 
 
 ## Demo
 
-A video demonstration for this application can be found [here](#).
+A video demonstration for this application can be found [here](https://youtu.be/8kmgETHWGpc).
 
